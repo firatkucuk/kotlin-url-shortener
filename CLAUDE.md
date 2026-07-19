@@ -41,3 +41,7 @@ Standard Maven/Gradle layout:
 As the URL-shortener functionality is built out, expect this to grow into typical Spring Boot layers (REST
 controllers, a service layer, a persistence layer for short-code ↔ URL mappings). No such structure exists yet,
 so don't assume package names like `controller`, `service`, or `repository` until they're actually created.
+
+## Coding preferences
+
+- Make sure code changes are suitable for .editorconfig settings
