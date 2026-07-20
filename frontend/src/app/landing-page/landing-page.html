@@ -1,0 +1,29 @@
+<div class="flex min-h-screen items-center justify-center px-4">
+  <div class="flex w-full max-w-sm flex-col gap-6">
+    <h1 class="text-center text-3xl font-bold tracking-tight">URL Shortener</h1>
+
+    <form class="join w-full" (ngSubmit)="onSubmit()">
+      <input
+        type="text"
+        class="input join-item w-full"
+        [class.input-error]="urlControl.invalid && urlControl.touched"
+        placeholder="Paste a URL to shorten"
+        [formControl]="urlControl"
+        (blur)="urlControl.markAsTouched()"
+      />
+      <button type="submit" class="btn btn-primary join-item" [disabled]="urlControl.invalid">
+        Shorten
+      </button>
+    </form>
+
+    <div class="min-h-6 text-sm">
+      @if (urlControl.touched && urlControl.hasError('required')) {
+        <p class="text-error">Enter a URL to shorten</p>
+      } @else if (urlControl.touched && urlControl.hasError('invalidUrl')) {
+        <p class="text-error">That doesn't look like a valid URL</p>
+      } @else if (submitted) {
+        <p class="text-success">Shortening isn't live yet — check back soon.</p>
+      }
+    </div>
+  </div>
+</div>
